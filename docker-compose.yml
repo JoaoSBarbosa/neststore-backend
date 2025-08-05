@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: nest_loja_db
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: loja
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - loja-network
+
+volumes:
+  postgres_data:
+
+networks:
+  loja-network:
+    driver: bridge
