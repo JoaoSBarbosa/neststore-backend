@@ -1,19 +1,3 @@
-Perfeito! Aqui está um exemplo de `README.md` **profissional** para o seu projeto **backend em NestJS**, considerando que ele será versionado no GitHub e **dockerizado** no futuro.
-
-Esse `README.md` cobre:
-
-- Descrição do projeto
-- Tecnologias utilizadas
-- Como rodar localmente
-- Como rodar com Docker
-- Estrutura do projeto (básica)
-- To-do para o futuro (com Angular e Docker Compose)
-
----
-
-### 📄 `README.md`
-
-```markdown
 # 🛒 Loja Virtual - Backend
 
 Este projeto é o **backend** de um sistema completo de loja virtual, desenvolvido com **NestJS**, **PostgreSQL** e boas práticas de arquitetura (modularização, SOLID, DDD).
