@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { SaleService } from './sale.service';
 import { CreateSaleDto } from './dtos/create-sale.dto';
 
@@ -19,5 +19,15 @@ export class SaleController {
   @Get()
   findAll() {
     return this.service.findAll();
+  }
+
+  @Delete(':id')
+  deleteById(@Param('id') id: number) {
+    return this.service.deleteById(id);
+  }
+
+  @Delete()
+  deleteAll() {
+    return this.service.deleteAll();
   }
 }

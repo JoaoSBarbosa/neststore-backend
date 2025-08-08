@@ -76,6 +76,27 @@ export class SaleService {
     return data;
   }
 
+  async deleteById(id: number) {
+    this.checkId(id, 'exclusão');
+    const result = await this.repository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(
+        'Não foi localizado registro de vendas com o ID informado: ' + id,
+      );
+    }
+    return `Registro de venda com o ID [${id}] foi deletado com sucesso!`;
+  }
+
+  async deleteAll() {
+    const result = await this.repository.deleteAll();
+    if (result.affected === 0) {
+      throw new NotFoundException(
+        'Não foi localizado registros de vendas para serem excluidos',
+      );
+    }
+    return `Registros de vendas deletados com sucesso!`;
+  }
+
   checkCreateEntity(data: CreateSaleDto) {
     if (data?.items?.length === 0)
       throw new BadRequestException('A venda deve conter pelo menos um item.');
