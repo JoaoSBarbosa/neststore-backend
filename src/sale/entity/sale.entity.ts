@@ -46,6 +46,7 @@ export class Sale {
 
   @Column()
   paymentMethodId: number;
+
   @Column({ nullable: true, type: 'text' })
   observation?: string;
 
