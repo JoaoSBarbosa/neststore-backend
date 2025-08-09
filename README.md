@@ -1,41 +1,56 @@
 # 🛒 Loja Virtual - Backend
 
-Este projeto é o **backend** de um sistema completo de loja virtual, desenvolvido com **NestJS**, **PostgreSQL** e boas práticas de arquitetura (modularização, SOLID, DDD).
-
-O objetivo principal deste projeto é **aprender e aplicar NestJS com foco em produção**, incluindo:
-
-- Estruturação modular e profissional
-- CRUDs com validação
-- Autenticação JWT
-- Banco de dados PostgreSQL
-- Deploy com **Docker**
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](https://github.com/JoaoSBarbosa/loja-backend/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18-green?style=flat-square)](https://nodejs.org/)
+[![NestJS](https://img.shields.io/badge/NestJS-v10-%23E0234E?style=flat-square&logo=nestjs&logoColor=white)](https://nestjs.com/)
+[![Docker](https://img.shields.io/badge/Docker-%232496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![TypeORM](https://img.shields.io/badge/TypeORM-%23007ACC?style=flat-square&logo=typeorm&logoColor=white)](https://typeorm.io/)
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 📖 Sobre o projeto
 
-- [NestJS](https://nestjs.com/) - Framework para Node.js
-- [TypeORM](https://typeorm.io/) - ORM para trabalhar com banco de dados
-- [PostgreSQL](https://www.postgresql.org/) - Banco de dados relacional
-- [Docker](https://www.docker.com/) - Containerização
-- [class-validator](https://github.com/typestack/class-validator) - Validação de dados com DTOs
+Este repositório contém o **backend** de uma aplicação de loja virtual construída com **NestJS**, **PostgreSQL** e arquitetura baseada em boas práticas como modularização, SOLID e DDD.
 
----
+O foco principal é **aprender e aplicar NestJS em ambiente de produção**, contemplando:
+
+- Estrutura modular organizada e escalável
+- CRUDs robustos com validação via DTOs e `class-validator`
+- Autenticação JWT segura
+- Persistência com banco PostgreSQL via TypeORM
+- Containerização usando Docker e Docker Compose
+
+
+
+<p align="center">
+  <a href="https://nestjs.com/" target="_blank" rel="noopener noreferrer" style="margin-right:20px;">
+    <img src="https://nestjs.com/img/logo-small.svg" alt="NestJS" height="60" />
+  </a>
+  <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" style="margin-right:20px;">
+    <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" alt="Docker" height="60" />
+  </a>
+  <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">
+    <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL" height="60" />
+  </a>
+</p>
+
 
 ## 📁 Estrutura do Projeto (inicial)
+
 ```
 
 backend/
 ├── src/
-│ ├── app.module.ts
-│ ├── main.ts
-│ ├── user/
-│ ├── cliente/
-│ ├── categoria/
-│ ├── produto/
-│ ├── venda/
-│ ├── item-venda/
-│ └── auth/
+│   ├── app.module.ts
+│   ├── main.ts
+│   ├── user/
+│   ├── cliente/
+│   ├── categoria/
+│   ├── produto/
+│   ├── venda/
+│   ├── item-venda/
+│   └── auth/
 ├── .env
 ├── Dockerfile
 ├── docker-compose.yml
@@ -43,13 +58,13 @@ backend/
 
 ````
 
-> A estrutura será dividida em **módulos de domínio** com suas respectivas entidades, controllers, serviços e DTOs.
+> A estrutura é organizada por **módulos de domínio**, cada um contendo suas entidades, controllers, serviços e DTOs.
 
 ---
 
 ## 🛠️ Pré-requisitos
 
-- [Node.js](https://nodejs.org/) >= 18
+- [Node.js](https://nodejs.org/) versão 18 ou superior
 - [Nest CLI](https://docs.nestjs.com/cli/overview)
 - [Docker](https://www.docker.com/) instalado
 
@@ -58,35 +73,33 @@ backend/
 ## ▶️ Rodando localmente (sem Docker)
 
 ```bash
-# Instale dependências
+# Instale as dependências
 npm install
 
 # Configure as variáveis de ambiente
 cp .env.example .env
 
-# Rode o projeto
+# Inicie o servidor em modo de desenvolvimento
 npm run start:dev
 ````
 
 ---
 
-## 🐳 Rodando com Docker (em breve)
-
-Você poderá subir este backend com Docker da seguinte forma:
+## 🐳 Rodando com Docker
 
 ```bash
-# Build da imagem
+# Build da imagem Docker
 docker build -t loja-backend .
 
 # Rodar container
 docker run -d -p 3000:3000 --env-file .env loja-backend
 ```
 
-Em breve, será adicionado um `docker-compose.yml` com banco PostgreSQL integrado.
+Também é possível subir o backend junto com o banco PostgreSQL usando Docker Compose.
 
 ---
 
-## 🧪 Testes (futuramente)
+## 🧪 Testes (planejados)
 
 ```bash
 # Testes unitários
@@ -100,30 +113,30 @@ npm run test:e2e
 
 ## ✅ Funcionalidades previstas
 
-- [x] Estrutura inicial com NestJS
-- [ ] CRUD de usuários
-- [ ] Autenticação com JWT
-- [ ] CRUD de clientes
-- [ ] CRUD de categorias
-- [ ] CRUD de produtos
-- [ ] Lançamento de vendas e itens da venda
-- [ ] Docker Compose com PostgreSQL
-- [ ] Frontend Angular (projeto separado)
+* [x] Estrutura inicial com NestJS
+* [x] CRUD de usuários
+* [ ] Autenticação com JWT
+* [x] CRUD de clientes
+* [x] CRUD de categorias
+* [x] CRUD de produtos
+* [x] Lançamento de vendas e itens de venda
+* [x] Orquestração com Docker Compose e PostgreSQL
+* [ ] Frontend Angular integrado (repositório separado)
 
 ---
 
-## 📦 Projeto Angular (Frontend)
+## 📦 Frontend Angular
 
-O frontend Angular será criado em um repositório separado e se comunicará com esta API. Toda integração será feita via HTTP REST.
+O frontend será desenvolvido em um projeto separado e consumirá esta API via REST.
 
 ---
 
 ## 📄 Licença
 
-Este projeto é open-source e livre para estudos e evolução pessoal 🚀
+MIT License — uso livre para estudos e projetos pessoais 🚀
 
 ---
 
 ## 👨‍💻 Desenvolvedor
 
-Feito com dedicação por [João Barbosa](https://github.com/JoaoSBarbosa).
+Feito com ❤️ por [João Barbosa](https://github.com/JoaoSBarbosa)
